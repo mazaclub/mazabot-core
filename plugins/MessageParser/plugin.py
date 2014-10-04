@@ -95,6 +95,7 @@ class MessageParser(callbacks.Plugin, plugins.ChannelDBHandler):
     def getDb(self, channel):
         """Use this to get a database for a specific channel."""
         currentThread = threading.currentThread()
+        if self.registryValue('global'): channel = 'global'
         if channel not in self.dbCache and currentThread == world.mainThread:
             self.dbCache[channel] = self.makeDb(self.makeFilename(channel))
         if currentThread != world.mainThread:
