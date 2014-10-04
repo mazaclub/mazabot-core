@@ -43,6 +43,9 @@ MessageParser = conf.registerPlugin('MessageParser')
 # This is where your configuration variables (if any) should go.  For example:
 # conf.registerGlobalValue(MessageParser, 'someConfigVariableName',
 #     registry.Boolean(False, """Help for someConfigVariableName."""))
+conf.registerGlobalValue(MessageParser, 'global',
+    registry.Boolean(True, """Whether the parser will operate on a 
+    global or per-channel basis."""))
 conf.registerChannelValue(MessageParser, 'enable',
     registry.Boolean(True, """Determines whether the
     message parser is enabled.  If enabled, will trigger on regexps
